@@ -5,7 +5,7 @@
         <emenu />
       </el-col>
       <el-col :span="19">
-        <!-- <life /> -->
+        <life />
       </el-col>
     </el-row>
     <el-row>
@@ -18,12 +18,12 @@
 
 <script>
 import Emenu from "@/components/index/menu.vue";
-// import Life from "@/components/index/life.vue";
+import Life from "@/components/index/life.vue";
 // import Artistic from "@/components/index/artistic.vue";
 export default {
   components: {
     Emenu,
-  //   Life,
+    Life,
   //   Artistic
   }
 };

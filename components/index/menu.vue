@@ -72,8 +72,8 @@ export default {
   },
   computed: {
     curdetail: function() {
-      return [];
       // return this.$store.state.home.menu.filter(item => item.type===this.kind)[0]
+      return this.menu.filter(item => item.type===this.kind)[0]
     }
   },
   methods: {

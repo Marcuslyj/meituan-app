@@ -7,18 +7,18 @@
       <nuxt/>
     </el-main>
     <el-footer height="100%">
-      <!-- <my-footer/> -->
+      <my-footer/>
     </el-footer>
   </el-container>
 </template>
 
 <script>
   import MyHeader from '@/components/public/header/index.vue'
-  // import MyFooter from '@/components/public/footer/index.vue'
+  import MyFooter from '@/components/public/footer/index.vue'
   export default {
     components:{
       MyHeader,
-      // MyFooter
+      MyFooter
     }
   }
 </script>
