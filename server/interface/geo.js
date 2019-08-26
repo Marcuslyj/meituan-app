@@ -26,4 +26,23 @@ router.get('/getPosition', async (ctx) => {
     }
 })
 
+router.get('/menu', async (ctx) => {
+    // const result = await Menu.findOne()
+    // ctx.body = {
+    //   menu: result.menu
+    // }
+    let { status, data: {
+        menu
+    } } = await axios.get(`http://cp-tools.cn/geo/menu`);
+    if (status === 200) {
+        ctx.body = {
+            menu
+        }
+    } else {
+        ctx.body = {
+            menu: []
+        }
+    }
+})
+
 module.exports = router
