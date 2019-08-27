@@ -12,6 +12,7 @@ const passport = require('./interface/utils/passport.js')
 const users = require('./interface/users.js')
 const geo = require('./interface/geo.js')
 const search = require('./interface/search.js')
+const category = require('./interface/categroy.js')
 
 
 const app = new Koa()
@@ -59,6 +60,8 @@ async function start() {
   app.use(users.routes()).use(users.allowedMethods())
   app.use(geo.routes()).use(geo.allowedMethods())
   app.use(search.routes()).use(search.allowedMethods())
+  app.use(category.routes()).use(category.allowedMethods())
+
 
 
   app.use((ctx) => {
