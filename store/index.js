@@ -12,6 +12,7 @@ const store = () => new Vuex.Store({
     },
     actions: {
         async nuxtServerInit({ commit }, { req, app }) {
+            // 位置信息
             const {
                 status,
                 data: {
@@ -20,16 +21,16 @@ const store = () => new Vuex.Store({
                 }
             } = await app.$axios.get('/geo/getPosition')
             commit('geo/setPosition', status === 200 ? { city, province } : { city: '', province: '' })
-            
+            // 菜单数据
             const { status: status2, data: { menu } } = await app.$axios.get('geo/menu')
             commit('home/setMenu', status2 === 200 ? menu : [])
-            
-            // const { status: status3, data: { result } } = await app.$axios.get('/search/hotPlace', {
-            //     params: {
-            //         city: app.store.state.geo.position.city.replace('市', '')
-            //     }
-            // })
-            // commit('home/setHotPlace', status3 === 200 ? result : [])
+            // hotPlace
+            const { status: status3, data: { result } } = await app.$axios.get('/search/hotPlace', {
+                params: {
+                    city: app.store.state.geo.position.city.replace('市', '')
+                }
+            })
+            commit('home/setHotPlace', status3 === 200 ? result : [])
         }
     }
 })
