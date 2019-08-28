@@ -14,6 +14,7 @@ const geo = require('./interface/geo.js')
 const search = require('./interface/search.js')
 const category = require('./interface/categroy.js')
 const cart = require('./interface/cart.js')
+const order = require('./interface/order.js')
 
 
 const app = new Koa()
@@ -63,6 +64,7 @@ async function start() {
   app.use(search.routes()).use(search.allowedMethods())
   app.use(category.routes()).use(category.allowedMethods())
   app.use(cart.routes()).use(cart.allowedMethods())
+  app.use(order.routes()).use(order.allowedMethods())
 
 
 
